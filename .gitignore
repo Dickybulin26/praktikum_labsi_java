@@ -1,0 +1,22 @@
+# Java bytecode - hasil compile, regenerate via javac
+*.class
+
+# NetBeans
+nbproject/
+build/
+dist/
+nbbuild/
+nbdist/
+.nb-gradle/
+
+# IntelliJ / Eclipse / VS Code
+.idea/
+*.iml
+.classpath
+.project
+.settings/
+.vscode/
+
+# OS
+.DS_Store
+Thumbs.db
