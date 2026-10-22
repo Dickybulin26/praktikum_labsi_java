@@ -1,43 +1,67 @@
-# Praktikum Labsi Java — M1 Sistem Informasi Hewan
+# Praktikum Labsi Java — PTA 2026/2027
 
-Repo untuk tugas **Laporan Akhir M-1**: program Java sederhana bertema Sistem Informasi Hewan dengan konsep **Object-Oriented Programming (OOP)**.
+Kumpulan tugas **Praktikum Laboratorium Sistem Informasi** (Universitas Gunadarma, PTA 2026/2027) untuk mata kuliah **Pemrograman Java**, dibimbing Ketua Asisten Stefy Ruslanda.
+
+| Praktikum | Topik | Konsep Utama |
+|---|---|---|
+| Minggu ke-1 | Sistem Informasi Hewan | OOP: Encapsulation, Inheritance, Polymorphism |
+| Minggu ke-2 | Evaluasi Mahasiswa | Percabangan: if, if-else, if-else if-else, nested if, switch-case |
+
+**Identitas praktikan:** Dicky Asqaeliany Ibnul Hakim — NPM 20125258 — Kelas 2KB04 — Baris 1
+
+---
 
 ## Isi Repo
 
 ```text
 praktikum_labsi_java/
-├── README.md         <- penjelasan repo (file ini)
-└── p1/
-    ├── soal.jpeg     <- foto soal asli
-    ├── Hewan.java    <- parent class
-    ├── Kucing.java   <- subclass Kucing
-    ├── Sapi.java     <- subclass Sapi
-    └── Main.java     <- program utama
+├── README.md        <- penjelasan repo (file ini)
+├── .gitignore       <- *.class dan folder build diabaikan
+├── p1/              # Praktikum ke-1 — Sistem Informasi Hewan (OOP)
+│   ├── soal.jpeg
+│   ├── Hewan.java
+│   ├── Kucing.java
+│   ├── Sapi.java
+│   ├── Main.java
+│   ├── result.png
+│   ├── screenshot_output.png
+│   └── LA_M1_LABSI_JAVA_20125258_DICKY_2KB04.pdf   (laporan akhir M-1)
+└── p2/              # Praktikum ke-2 — Evaluasi Mahasiswa (Percabangan)
+    ├── Materi_Java_2KB04_p2.pdf
+    ├── EvaluasiMahasiswa.java                     (program utama tugas)
+    ├── Main.java / MainScanner.java               (latihan materi)
+    └── LA_M2_LABSI_JAVA_20125258_DICKY_2KB04.pdf   (laporan akhir M-2)
 ```
 
-## Konsep OOP yang Dipakai
+---
+
+## P1 — Sistem Informasi Hewan (OOP)
+
+Program Java sederhana bertema Sistem Informasi Hewan dengan menerapkan **Object-Oriented Programming**.
+
+### Konsep OOP yang dipakai
 
 1. **Encapsulation** — atribut `nama` di `Hewan` dibuat `private`, diakses lewat `getNama()` / `setNama()`.
-2. **Inheritance** — `Kucing extends Hewan` dan `Sapi extends Hewan`, jadi tidak perlu tulis ulang `nama`.
-3. **Polymorphism (Overriding)** — method `bersuara()` yang sama punya perilaku beda:
+2. **Inheritance** — `Kucing extends Hewan` dan `Sapi extends Hewan`, jadi tidak perlu menulis ulang atribut `nama`.
+3. **Polymorphism (Overriding)** — method `bersuara()` yang sama punya perilaku berbeda:
    - `Kucing` -> `Suara: Meong!`
    - `Sapi` -> `Suara: Mooo!`
 
-## Penjelasan File
+### Penjelasan file
 
-- **Hewan.java**: parent class. Simpan `nama`, sediakan `bersuara()` default.
-- **Kucing.java / Sapi.java**: anak class. Override `bersuara()` dengan suara khas masing-masing.
-- **Main.java**: buat objek `Kucing("Milo")` dan `Sapi("Sapi Momo")`, tampilkan nama + jenis + suara.
+- **Hewan.java** — parent class: menyimpan `nama` (private) + `getter`/`setter` + `bersuara()` default.
+- **Kucing.java / Sapi.java** — subclass: mewarisi `Hewan`, meng-override `bersuara()` dengan suara khas masing-masing.
+- **Main.java** — program utama: membuat objek `Kucing` (Milo) dan `Sapi` (Sapi Momo), menampilkan nama + jenis + suara.
 
-## Cara Compile & Run
+### Cara compile & run
 
 ```bash
 cd p1
-javac Hewan.java Kucing.java Sapi.java Main.java
+javac *.java
 java Main
 ```
 
-## Contoh Output
+### Contoh output
 
 ```text
 === Informasi Hewan ===
@@ -51,14 +75,14 @@ Jenis Hewan: Sapi
 Suara: Mooo!
 ```
 
-## Alur Logika Singkat
+### Alur logika singkat
 
 1. Cetak judul.
 2. Buat objek `Kucing`, set nama `Milo`, tampilkan nama + jenis, panggil `bersuara()`.
 3. Buat objek `Sapi`, set nama `Sapi Momo`, tampilkan nama + jenis, panggil `bersuara()`.
-4. Java otomatis pilih versi `bersuara()` sesuai tipe objek (polymorphism).
+4. Java otomatis memilih versi `bersuara()` sesuai tipe objek asli (polymorphism).
 
-## Syarat Lulus (Wajib Cek)
+### Syarat lulus (wajib cek)
 
 - `private String nama` di `Hewan.java`
 - Ada `getNama` dan `setNama`
@@ -67,9 +91,92 @@ Suara: Mooo!
 - `Main` memakai `setNama`, `getNama`, dan `bersuara()`
 - Output sama persis dengan contoh di atas
 
-## Kebutuhan Laporan Akhir
+---
 
-1. Source code (4 file di `p1/`)
-2. Screenshot hasil `java Main`
-3. Penjelasan alur logika (lihat bagian di atas)
-4. Kesimpulan tentang encapsulation, inheritance, polymorphism
+## P2 — Evaluasi Mahasiswa (Percabangan)
+
+Program untuk mengevaluasi hasil ujian mahasiswa. Input dibaca dari keyboard memakai `Scanner`, lalu seluruh struktur kondisi pada materi Pertemuan 2 diterapkan: `if`, `if-else`, `if-else if-else`, `nested if`, dan `switch-case`.
+
+### Konsep percabangan yang dipakai
+
+1. **`if`** — validasi nilai ujian pada rentang 0-100; jika tidak valid, program berhenti dengan pesan "Nilai tidak valid".
+2. **`if-else`** — kelulusan dengan nilai minimal 60 (`Lulus` / `Tidak Lulus`).
+3. **`if-else if-else`** — predikat nilai: 80-100 `A`, 70-79 `B`, 60-69 `C`, di bawah 60 `D`.
+4. **`nested if`** — pemeriksaan kehadiran (minimal 75%) hanya dilakukan jika mahasiswa dinyatakan lulus.
+5. **`switch-case`** — menu informasi: pilihan 1 (nama & nilai), 2 (status kelulusan), 3 (predikat), selain itu `Menu tidak tersedia`.
+
+### Penjelasan file
+
+- **EvaluasiMahasiswa.java** — program utama tugas: membaca input (nama, nilai, kehadiran), memvalidasi, menentukan status kelulusan, predikat, kehadiran, lalu menampilkan menu informasi.
+- **Main.java / MainScanner.java** — latihan percabangan dari slide materi (predikat nilai dengan if-else if-else, dan switch-case menu kantin).
+
+### Cara compile & run
+
+```bash
+cd p2
+javac EvaluasiMahasiswa.java
+java EvaluasiMahasiswa
+```
+
+Program bersifat interaktif, jadi jalankan langsung di terminal (jangan di-pipe) lalu isi sesuai permintaan.
+
+### Contoh output (input: Dicky / 85 / 80 / menu 2)
+
+```text
+Nama Mahasiswa      : Dicky
+Nilai Ujian (0-100) : 85
+Kehadiran (%)       : 80
+Nilai valid
+Status: Lulus
+Kehadiran memenuhi syarat
+Predikat: A
+
+=== Menu Informasi ===
+1. Nama dan nilai mahasiswa
+2. Status kelulusan
+3. Predikat nilai
+Pilih menu: 2
+
+Informasi: Status kelulusan
+Dicky dinyatakan Lulus
+```
+
+### Alur logika singkat
+
+1. Baca nama, nilai, dan persentase kehadiran dari keyboard (`Scanner`).
+2. Tentukan `hadirMemenuhi` = kehadiran minimal 75%.
+3. `if` cek nilai 0-100; jika invalid, cetak pesan dan selesai.
+4. `if-else` tentukan status kelulusan, lalu cetak `Status: ...`.
+5. `nested if`: jika lulus, cek kehadiran dan cetak hasilnya.
+6. `if-else if-else` tentukan predikat, lalu cetak `Predikat: ...`.
+7. `switch-case` membaca pilihan menu dan menampilkan informasi sesuai pilihan.
+8. Tutup `Scanner` dengan `input.close()`.
+
+### Syarat lulus (wajib cek)
+
+- Ada `import java.util.Scanner` dan `input.close()` di akhir program
+- Variabel nama, nilai, dan kehadiran (ketentuan 1)
+- `if` untuk validasi rentang 0-100 (ketentuan 2)
+- `if-else` untuk kelulusan minimal 60 (ketentuan 3)
+- `if-else if-else` untuk predikat A/B/C/D (ketentuan 4)
+- `nested if` untuk pemeriksaan kehadiran saat lulus (ketentuan 5)
+- `switch-case` untuk menu 1/2/3 + `default` (ketentuan 6)
+
+---
+
+## Laporan Akhir
+
+Laporan sudah final dalam bentuk PDF (sesuai format laboratorium):
+
+- `p1/LA_M1_LABSI_JAVA_20125258_DICKY_2KB04.pdf`
+- `p2/LA_M2_LABSI_JAVA_20125258_DICKY_2KB04.pdf`
+
+Isi laporan: tujuan praktikum, source code, hasil eksekusi (screenshot + output), penjelasan alur logika, dan kesimpulan.
+
+---
+
+## Catatan Teknis
+
+- Semua program berada dalam satu folder per pertemuan, **tanpa `package`**, agar mudah di-compile (`javac *.java`).
+- File `*.class` adalah bytecode hasil compile dan **sudah diabaikan** lewat `.gitignore` — cukup di-regenerate dengan `javac`.
+- Nama file Java wajib sama persis dengan nama class (case-sensitive).

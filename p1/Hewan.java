@@ -3,15 +3,6 @@ public class Hewan {
     // Encapsulation: atribut private, hanya bisa diakses via getter/setter
     private String nama;
 
-    // Constructor kosong
-    public Hewan() {
-    }
-
-    // Constructor dengan parameter nama
-    public Hewan(String nama) {
-        this.nama = nama;
-    }
-
     // Getter untuk membaca nama
     public String getNama() {
         return nama;
