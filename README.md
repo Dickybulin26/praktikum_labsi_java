@@ -6,6 +6,7 @@ Kumpulan tugas **Praktikum Laboratorium Sistem Informasi** (Universitas Gunadarm
 |---|---|---|
 | Minggu ke-1 | Sistem Informasi Hewan | OOP: Encapsulation, Inheritance, Polymorphism |
 | Minggu ke-2 | Evaluasi Mahasiswa | Percabangan: if, if-else, if-else if-else, nested if, switch-case |
+| Minggu ke-3 | Pola Bangun | Perulangan: for, while, do-while (nested loop) |
 
 **Identitas praktikan:** Dicky Asqaeliany Ibnul Hakim — NPM 20125258 — Kelas 2KB04 — Baris 1
 
@@ -31,6 +32,12 @@ praktikum_labsi_java/
     ├── EvaluasiMahasiswa.java                     (program utama tugas)
     ├── Main.java / MainScanner.java               (latihan materi)
     └── LA_M2_LABSI_JAVA_20125258_DICKY_2KB04.pdf   (laporan akhir M-2)
+└── p3/              # Praktikum ke-3 — Pola Bangun (Perulangan)
+    ├── soal_LA_m3.jpeg
+    ├── soal_LP_m4.jpeg
+    ├── PolaBangun.java                            (program utama tugas)
+    ├── Main.java                                  (eksperimen nested loop)
+    └── LA_M3_LABSI_JAVA_20125258_DICKY_2KB04.pdf   (laporan akhir M-3)
 ```
 
 ---
@@ -164,12 +171,76 @@ Dicky dinyatakan Lulus
 
 ---
 
+## P3 — Pola Bangun (Perulangan)
+
+Program untuk menampilkan tiga pola bangun menggunakan **tiga jenis perulangan berbeda** sesuai soal: segitiga siku-siku (`for`), segitiga sama sisi (`do-while`), dan persegi (`while`).
+
+### Konsep perulangan yang dipakai
+
+1. **`for` loop** — segitiga siku-siku: angka dicetak sesuai nomor baris (`1`, `2 2`, `3 3 3`, dst). Loop luar mengatur baris, loop dalam mengatur banyaknya angka per baris (`j <= i`).
+2. **`do-while` loop** — segitiga sama sisi: piramida `*` rata tengah. Kolom spasi (`kolom <= spasi`) dicetak lebih dulu, baru bintang; jumlah bintang ganjil (`2*baris - 1` = 1, 3, 5, 7, 9). Karena `do-while`, blok dijamin jalan minimal satu kali.
+3. **`while` loop** — persegi: setiap baris dicetak dengan angka yang sama (`1 1 1 1 1` s.d. `5 5 5 5 5`). Loop luar = baris, loop dalam = kolom.
+
+### Penjelasan file
+
+- **PolaBangun.java** — program utama tugas: tiga pola dalam satu program, masing-masing memakai jenis loop yang diminta soal.
+- **Main.java** — eksperimen nested loop pribadi (for, for-each, while, do-while, break/continue).
+
+### Cara compile & run
+
+```bash
+cd p3
+javac PolaBangun.java
+java PolaBangun
+```
+
+### Contoh output (sama dengan contoh di soal)
+
+```text
+Segitiga Siku-Siku:
+1
+2 2
+3 3 3
+4 4 4 4
+5 5 5 5 5
+
+Segitiga Sama Sisi:
+    *
+   ***
+  *****
+ *******
+*********
+
+Persegi:
+1 1 1 1 1
+2 2 2 2 2
+3 3 3 3 3
+4 4 4 4 4
+5 5 5 5 5
+```
+
+### Alur logika singkat
+
+1. **Segitiga siku-siku (for):** baris `i` dari 1-5; di dalamnya loop `j` dari 1 sampai `i` mencetak angka `i` dipisah spasi, lalu pindah baris.
+2. **Segitiga sama sisi (do-while):** per baris, hitung `spasi = 5 - baris` dan `lebar = spasi + (2*baris - 1)`; loop kolom mencetak spasi dulu, lalu bintang sampai `lebar`, baru pindah baris.
+3. **Persegi (while):** baris `b` dari 1-5; loop dalam mencetak angka `b` lima kali dipisah spasi, lalu pindah baris.
+
+### Syarat lulus (wajib cek)
+
+- Segitiga siku-siku memakai `for` dan angka mengikuti nomor baris
+- Segitiga sama sisi memakai `do-while` dan pola karakter `*`
+- Persegi memakai `while` dan angka sama pada setiap baris
+- Output sama dengan contoh output di soal
+
+---
+
 ## Laporan Akhir
 
 Laporan sudah final dalam bentuk PDF (sesuai format laboratorium):
 
 - `p1/LA_M1_LABSI_JAVA_20125258_DICKY_2KB04.pdf`
 - `p2/LA_M2_LABSI_JAVA_20125258_DICKY_2KB04.pdf`
+- `p3/LA_M3_LABSI_JAVA_20125258_DICKY_2KB04.pdf`
 
 Isi laporan: tujuan praktikum, source code, hasil eksekusi (screenshot + output), penjelasan alur logika, dan kesimpulan.
 
