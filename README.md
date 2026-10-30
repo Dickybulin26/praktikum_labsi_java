@@ -173,17 +173,18 @@ Dicky dinyatakan Lulus
 
 ## P3 — Pola Bangun (Perulangan)
 
-Program untuk menampilkan tiga pola bangun menggunakan **tiga jenis perulangan berbeda** sesuai soal: segitiga siku-siku (`for`), segitiga sama sisi (`do-while`), dan persegi (`while`).
+Program untuk menampilkan pola bangun menggunakan **jenis-jenis perulangan berbeda**: segitiga siku-siku (`for`), segitiga sama sisi (`do-while`), persegi (`while`), plus **piramida terbalik** (tambahan soal, input tinggi via `Scanner`).
 
 ### Konsep perulangan yang dipakai
 
 1. **`for` loop** — segitiga siku-siku: angka dicetak sesuai nomor baris (`1`, `2 2`, `3 3 3`, dst). Loop luar mengatur baris, loop dalam mengatur banyaknya angka per baris (`j <= i`).
 2. **`do-while` loop** — segitiga sama sisi: piramida `*` rata tengah. Kolom spasi (`kolom <= spasi`) dicetak lebih dulu, baru bintang; jumlah bintang ganjil (`2*baris - 1` = 1, 3, 5, 7, 9). Karena `do-while`, blok dijamin jalan minimal satu kali.
 3. **`while` loop** — persegi: setiap baris dicetak dengan angka yang sama (`1 1 1 1 1` s.d. `5 5 5 5 5`). Loop luar = baris, loop dalam = kolom.
+4. **`Scanner` + nested `for` (tambahan)** — piramida terbalik: ukuran tinggi dibaca dari keyboard, tiap baris jumlah bintang berkurang dan spasi kiri bertambah, bintang dipisah spasi.
 
 ### Penjelasan file
 
-- **PolaBangun.java** — program utama tugas: tiga pola dalam satu program, masing-masing memakai jenis loop yang diminta soal.
+- **PolaBangun.java** — program utama tugas: empat pola dalam satu program (tiga pola soal + piramida terbalik tambahan dengan `Scanner`).
 - **Main.java** — eksperimen nested loop pribadi (for, for-each, while, do-while, break/continue).
 
 ### Cara compile & run
@@ -194,9 +195,12 @@ javac PolaBangun.java
 java PolaBangun
 ```
 
-### Contoh output (sama dengan contoh di soal)
+Program meminta tinggi piramida terbalik di awal (ketik angka, misal `5`).
+
+### Contoh output (tinggi = 5, sama dengan contoh di soal)
 
 ```text
+Masukkan tinggi piramida terbalik: 5
 Segitiga Siku-Siku:
 1
 2 2
@@ -217,20 +221,31 @@ Persegi:
 3 3 3 3 3
 4 4 4 4 4
 5 5 5 5 5
+
+Piramida Terbalik:
+* * * * *
+ * * * *
+  * * *
+   * *
+    *
 ```
 
 ### Alur logika singkat
 
-1. **Segitiga siku-siku (for):** baris `i` dari 1-5; di dalamnya loop `j` dari 1 sampai `i` mencetak angka `i` dipisah spasi, lalu pindah baris.
-2. **Segitiga sama sisi (do-while):** per baris, hitung `spasi = 5 - baris` dan `lebar = spasi + (2*baris - 1)`; loop kolom mencetak spasi dulu, lalu bintang sampai `lebar`, baru pindah baris.
-3. **Persegi (while):** baris `b` dari 1-5; loop dalam mencetak angka `b` lima kali dipisah spasi, lalu pindah baris.
+1. Program membaca `tinggi` piramida terbalik dari keyboard (`Scanner`).
+2. **Segitiga siku-siku (for):** baris `i` dari 1-5; di dalamnya loop `j` dari 1 sampai `i` mencetak angka `i` dipisah spasi, lalu pindah baris.
+3. **Segitiga sama sisi (do-while):** per baris, hitung `spasi = 5 - baris` dan `lebar = spasi + (2*baris - 1)`; loop kolom mencetak spasi dulu, lalu bintang sampai `lebar`, baru pindah baris.
+4. **Persegi (while):** baris `b` dari 1-5; loop dalam mencetak angka `b` lima kali dipisah spasi, lalu pindah baris.
+5. **Piramida terbalik (tambahan, for):** baris `i` dari `tinggi` turun ke 1; cetak `tinggi - i` spasi, lalu `i` bintang dipisah spasi, lalu pindah baris.
+6. Tutup `Scanner` dengan `input.close()`.
 
 ### Syarat lulus (wajib cek)
 
 - Segitiga siku-siku memakai `for` dan angka mengikuti nomor baris
 - Segitiga sama sisi memakai `do-while` dan pola karakter `*`
 - Persegi memakai `while` dan angka sama pada setiap baris
-- Output sama dengan contoh output di soal
+- Output tiga pola sama dengan contoh output di soal
+- Piramida terbalik (tambahan): `Scanner` untuk tinggi + nested loop, bentuk piramida terbalik seperti contoh gambar soal
 
 ---
 

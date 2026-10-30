@@ -1,5 +1,12 @@
+import java.util.Scanner;
+
 public class PolaBangun {
     public static void main(String[] args) {
+        // Scanner untuk pola tambahan (piramida terbalik)
+        Scanner input = new Scanner(System.in);
+        System.out.print("Masukkan tinggi piramida terbalik: ");
+        int tinggi = input.nextInt();
+
         // 1. Segitiga siku-siku: for loop
         System.out.println("Segitiga Siku-Siku:");
         for (int i = 1; i <= 5; i++) {
@@ -48,5 +55,23 @@ public class PolaBangun {
             System.out.println();
             b++;
         }
+        System.out.println();
+
+        // 4. Piramida terbalik (tambahan soal): Scanner + nested for, tinggi bebas
+        System.out.println("Piramida Terbalik:");
+        for (int i = tinggi; i >= 1; i--) {          // baris: tinggi turun ke 1
+            for (int s = 1; s <= tinggi - i; s++) {  // spasi kiri bertambah tiap baris
+                System.out.print(" ");
+            }
+            for (int j = 1; j <= i; j++) {           // bintang berkurang, dipisah spasi
+                System.out.print("*");
+                if (j < i) {
+                    System.out.print(" ");
+                }
+            }
+            System.out.println();
+        }
+
+        input.close();
     }
 }
